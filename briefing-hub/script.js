@@ -4,7 +4,7 @@
 const CONFIG = {
   brand: "CORTÊS",
   social: "@cortezweb.ia",
-  whatsappSites: "5579981719609",
+  whatsappSites: "5579981719602",
   whatsappTraffic: "5579988133030",
   enableExternalSubmission: false,
   externalEndpoint: "",
