@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#08090d">
+  <meta name="description" content="CORTÊS Briefing Hub — pré-atendimento digital para organizar seu projeto.">
+  <meta name="robots" content="noindex,nofollow">
+  <title>CORTÊS Briefing Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg bg-a"></div><div class="bg bg-b"></div>
+
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="CORTÊS Briefing Hub">
+      <span class="mark" aria-hidden="true"><b>C</b><i></i></span>
+      <span><strong>CORTÊS</strong><small>BRIEFING HUB</small></span>
+    </a>
+    <div class="top-actions">
+      <button id="summaryBtn" class="link-btn hidden" type="button">Ver respostas</button>
+      <span id="saveStatus" class="save-status" aria-live="polite">Pronto</span>
+    </div>
+  </header>
+
+  <main class="app">
+    <section id="intro" class="screen active hero">
+      <div class="hero-copy">
+        <span class="eyebrow">PRÉ-ATENDIMENTO DIGITAL / CORTÊS</span>
+        <h1>Vamos transformar sua ideia em um projeto <em>claro.</em></h1>
+        <p>Responda algumas perguntas e a CORTÊS organiza automaticamente o que realmente importa para entender seu negócio e começar seu projeto.</p>
+        <div class="chips"><span>Sem formulário complicado</span><span>Você responde no seu ritmo</span><span>Briefing pronto no final</span></div>
+        <button id="startBtn" class="btn primary" type="button">COMEÇAR <span>↗</span></button>
+        <small class="helper">Você poderá escolher entre uma versão rápida ou completa.</small>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit"></div>
+        <div class="preview-card">
+          <small>INFORMAÇÕES DISPERSAS</small>
+          <strong>ENTENDER → ORGANIZAR → CRIAR</strong>
+          <div class="preview-bar"><span></span></div>
+        </div>
+        <div class="float-card fc1"><small>Objetivo</small><b>WhatsApp</b></div>
+        <div class="float-card fc2"><small>Direção</small><b>Autoral</b></div>
+      </div>
+    </section>
+
+    <section id="modes" class="screen">
+      <div class="head">
+        <span class="eyebrow">ESCOLHA O RITMO</span>
+        <h2>Quanto você quer nos contar?</h2>
+        <p>Você pode começar rápido e aprofundar depois.</p>
+      </div>
+      <div class="mode-grid">
+        <button class="mode-card" data-mode="quick" type="button">
+          <span>01</span><strong>Modo rápido</strong><em>2–3 min</em>
+          <p>As informações essenciais para entender o projeto e seguir para o contato.</p>
+          <b>QUERO IR RÁPIDO ↗</b>
+        </button>
+        <button class="mode-card featured" data-mode="complete" type="button">
+          <span>02</span><strong>Modo completo</strong><em>5–8 min</em>
+          <p>Mais contexto para um projeto específico, criativo e melhor direcionado.</p>
+          <b>QUERO DETALHAR ↗</b>
+        </button>
+        <button class="mode-card" data-mode="auto" type="button">
+          <span>03</span><strong>Decida por mim</strong><em>adaptativo</em>
+          <p>Começamos pelo essencial e abrimos mais perguntas quando fizer sentido.</p>
+          <b>COMEÇAR ADAPTATIVO ↗</b>
+        </button>
+      </div>
+    </section>
+
+    <section id="quiz" class="screen quiz-layout">
+      <aside class="progress-box">
+        <div class="progress-meta"><span id="stepLabel">ETAPA 1</span><strong id="percent">0%</strong></div>
+        <div class="track"><span id="bar"></span></div>
+        <div class="cut-progress" aria-hidden="true"><b>C</b><i id="cutLine"></i></div>
+        <p id="progressText">Vamos começar pelo que você está procurando.</p>
+      </aside>
+
+      <div class="question-wrap">
+        <article class="question-card">
+          <span id="category" class="eyebrow">PROJETO</span>
+          <h2 id="questionTitle">O que você está procurando?</h2>
+          <p id="questionHelp" class="q-help"></p>
+          <div id="questionBody" class="question-body"></div>
+
+          <div class="free-block">
+            <button id="customToggle" class="link-btn" type="button">+ Outro / quero responder com minhas palavras</button>
+            <div id="customBox" class="expand hidden">
+              <label for="customText">Sua resposta</label>
+              <textarea id="customText" rows="3" placeholder="Escreva do seu jeito."></textarea>
+            </div>
+          </div>
+
+          <div class="free-block">
+            <button id="moreToggle" class="link-btn" type="button">+ Quero explicar melhor</button>
+            <div id="moreBox" class="expand hidden">
+              <label for="moreText">Complemento</label>
+              <textarea id="moreText" rows="3" placeholder="Adicione qualquer contexto que possa ajudar."></textarea>
+            </div>
+          </div>
+
+          <p id="validation" class="validation" aria-live="assertive"></p>
+        </article>
+        <div class="nav">
+          <button id="backBtn" class="btn secondary" type="button">← VOLTAR</button>
+          <button id="skipBtn" class="btn ghost" type="button">PULAR</button>
+          <button id="nextBtn" class="btn primary" type="button">CONTINUAR →</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="review" class="screen">
+      <div class="head compact">
+        <span class="eyebrow">REVISÃO</span>
+        <h2>Confira seu projeto.</h2>
+        <p>Você pode editar qualquer resposta antes de finalizar.</p>
+      </div>
+      <div class="score-card"><div><small>COMPLETUDE</small><strong id="reviewScore">0%</strong></div><p id="scoreText">Temos o básico.</p></div>
+      <div id="missingBox" class="missing hidden"></div>
+      <div id="reviewList" class="review-list"></div>
+      <div class="review-actions"><button id="reviewBack" class="btn secondary" type="button">← VOLTAR</button><button id="finishBtn" class="btn primary" type="button">GERAR MEU BRIEFING ↗</button></div>
+    </section>
+
+    <section id="result" class="screen">
+      <div class="result-hero">
+        <span class="eyebrow">BRIEFING CONCLUÍDO</span>
+        <h2>Seu projeto já está muito mais claro.</h2>
+        <p>Organizamos suas respostas para que a próxima conversa não precise começar do zero.</p>
+      </div>
+      <div class="result-grid">
+        <article><small>ID DO BRIEFING</small><strong id="finalId">—</strong></article>
+        <article><small>COMPLETUDE</small><strong id="finalScore">—</strong></article>
+        <article class="wide"><small>PRÓXIMO PASSO SUGERIDO</small><strong id="recommendation">—</strong><p id="insight"></p></article>
+      </div>
+      <div class="result-actions">
+        <button id="whatsappBtn" class="btn primary" type="button">ENVIAR PARA CORTÊS ↗</button>
+        <button id="copyBriefing" class="btn secondary" type="button">COPIAR BRIEFING</button>
+        <button id="copyAI" class="btn secondary" type="button">COPIAR PARA IA</button>
+        <button id="txtBtn" class="btn ghost" type="button">BAIXAR TXT</button>
+        <button id="jsonBtn" class="btn ghost" type="button">BAIXAR JSON</button>
+      </div>
+      <details class="preview"><summary>Ver briefing completo</summary><pre id="previewText"></pre></details>
+      <div class="bottom-links"><button id="editBtn" class="link-btn" type="button">Editar briefing</button><button id="newBtn" class="link-btn danger" type="button">Criar outro briefing</button></div>
+    </section>
+  </main>
+
+  <div id="resumeModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="resumeTitle">
+    <div class="modal-card">
+      <button class="close" data-close="resumeModal" type="button" aria-label="Fechar">×</button>
+      <span class="eyebrow">RASCUNHO ENCONTRADO</span>
+      <h2 id="resumeTitle">Você começou um briefing antes.</h2>
+      <p>Quer continuar de onde parou ou começar um novo?</p>
+      <div class="modal-actions"><button id="continueBtn" class="btn primary" type="button">CONTINUAR</button><button id="discardBtn" class="btn secondary" type="button">COMEÇAR NOVO</button></div>
+    </div>
+  </div>
+
+  <div id="drawer" class="drawer hidden">
+    <button class="drawer-bg" data-close="drawer" aria-label="Fechar resumo"></button>
+    <aside class="drawer-panel">
+      <div class="drawer-head"><div><span class="eyebrow">SEU BRIEFING</span><h2>O que já respondeu</h2></div><button class="close" data-close="drawer" type="button">×</button></div>
+      <div id="drawerContent"></div>
+    </aside>
+  </div>
+
+  <div id="privacyModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+    <div class="modal-card">
+      <button class="close" data-close="privacyModal" type="button">×</button>
+      <span class="eyebrow">PRIVACIDADE</span>
+      <h2 id="privacyTitle">Como usamos suas informações?</h2>
+      <p>Os dados servem para analisar seu projeto, gerar o briefing e permitir contato com a CORTÊS. Sem integração externa ativa, o rascunho permanece apenas neste dispositivo via localStorage.</p>
+      <button id="clearBtn" class="btn ghost danger" type="button">APAGAR DADOS DESTE DISPOSITIVO</button>
+    </div>
+  </div>
+
+  <footer>
+    <span>CORTÊS / SERVIÇOS DIGITAIS</span>
+    <button id="privacyBtn" class="link-btn" type="button">Privacidade</button>
+    <span>@cortezweb.ia</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
