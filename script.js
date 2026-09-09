@@ -1,25 +1,117 @@
-const CORTEZ_CONFIG={brand:"CORTÊS",subtitle:"Soluções Digitais",whatsappSites:"5579981719602",whatsappTraffic:"5579988133030",socialHandle:"@cortezweb.ia"};
+"use strict";
 
-function createWhatsAppURL(phone,message){return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`}
-function openWhatsApp(type,message){const phone=type==="traffic"?CORTEZ_CONFIG.whatsappTraffic:CORTEZ_CONFIG.whatsappSites;window.open(createWhatsAppURL(phone,message),"_blank","noopener,noreferrer")}
-function value(form,name){return String(new FormData(form).get(name)||"").trim()}
-function scrollToSelector(selector){const el=document.querySelector(selector);if(el)el.scrollIntoView({behavior:"smooth",block:"start"})}
+const CORTES_CONFIG = {
+  brand: "CORTÊS",
+  whatsappSites: "5579981719602",
+  whatsappTraffic: "5579988133030",
+  social: "@cortezweb.ia"
+};
 
-function initMenu(){const t=document.getElementById("menuToggle"),n=document.getElementById("mainNav");if(!t||!n)return;const close=()=>{t.classList.remove("is-open");n.classList.remove("is-open");t.setAttribute("aria-expanded","false")};t.addEventListener("click",()=>{const open=t.getAttribute("aria-expanded")!=="true";t.classList.toggle("is-open",open);n.classList.toggle("is-open",open);t.setAttribute("aria-expanded",String(open))});n.querySelectorAll("a").forEach(a=>a.addEventListener("click",close));window.addEventListener("resize",()=>{if(innerWidth>=980)close()})}
-function initScrollButtons(){document.querySelectorAll("[data-scroll]").forEach(btn=>btn.addEventListener("click",()=>scrollToSelector(btn.dataset.scroll)))}
-function initHeaderAndProgress(){const h=document.getElementById("siteHeader"),p=document.getElementById("progressBar");const update=()=>{if(h)h.classList.toggle("is-scrolled",scrollY>24);if(p){const max=document.documentElement.scrollHeight-innerHeight;p.style.width=`${max>0?Math.min(100,Math.max(0,scrollY/max*100)):0}%`}};update();addEventListener("scroll",update,{passive:true});addEventListener("resize",update)}
-function initScrollAnimations(){const els=document.querySelectorAll(".reveal");if(!els.length)return;if(!("IntersectionObserver" in window)){els.forEach(e=>e.classList.add("is-visible"));return}const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target)}}),{threshold:.12,rootMargin:"0px 0px -7% 0px"});els.forEach(e=>observer.observe(e))}
-function initDigitalCut(){const cut=document.getElementById("digitalCut"),sections=document.querySelectorAll("#diagnostico,#planos,#como-funciona,#trafego,#faq");if(!cut||!sections.length||!("IntersectionObserver" in window))return;const seen=new WeakSet(),observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting&&!seen.has(entry.target)){seen.add(entry.target);cut.classList.remove("is-active");void cut.offsetWidth;cut.classList.add("is-active")}}),{threshold:.22});sections.forEach(s=>observer.observe(s))}
-function initFAQ(){document.querySelectorAll(".faq-item").forEach(item=>{const button=item.querySelector("button");if(!button)return;button.addEventListener("click",()=>{const open=!item.classList.contains("is-open");item.classList.toggle("is-open",open);button.setAttribute("aria-expanded",String(open))})})}
+const $ = (selector, root = document) => root?.querySelector?.(selector) || null;
+const $$ = (selector, root = document) => root ? [...root.querySelectorAll(selector)] : [];
 
-function initQuickQuiz(){const form=document.getElementById("quickQuiz");if(!form)return;form.addEventListener("submit",event=>{event.preventDefault();if(!form.reportValidity())return;const business=value(form,"business"),need=value(form,"need"),goal=value(form,"goal");const route=need==="traffic"?"traffic":"sites";const needLabel=need==="site"?"Criação de site/landing page":need==="traffic"?"Gestão de tráfego":"Ainda não sei qual serviço é o ideal";const message=`Olá, Cortês. Fiz o diagnóstico rápido no site.\n\nNegócio: ${business}\nNecessidade: ${needLabel}\nObjetivo principal: ${goal}\n\nGostaria de entender qual é o melhor próximo passo para meu negócio.`;openWhatsApp(route,message)})}
+function whatsappURL(phone, message) {
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
 
-function initSiteQuiz(){const modal=document.getElementById("siteQuizModal"),form=document.getElementById("siteQuiz"),plan=document.getElementById("sitePlan");if(!modal||!form||!plan)return;const open=(selectedPlan)=>{plan.value=selectedPlan||"Ainda não defini";modal.hidden=false;document.body.classList.add("modal-open");setTimeout(()=>document.getElementById("siteBusiness")?.focus(),40)};const close=()=>{modal.hidden=true;document.body.classList.remove("modal-open")};document.querySelectorAll("[data-open-site-quiz]").forEach(btn=>btn.addEventListener("click",()=>open(btn.dataset.plan||"Ainda não defini")));document.querySelectorAll("[data-close-site-quiz]").forEach(btn=>btn.addEventListener("click",close));document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!modal.hidden)close()});form.addEventListener("submit",event=>{event.preventDefault();if(!form.reportValidity())return;const message=`Olá, Cortês. Respondi o quiz de criação de site.\n\nPlano de interesse: ${value(form,"plan")}\nEmpresa/negócio: ${value(form,"business")}\nSegmento: ${value(form,"segment")}\nCidade/região: ${value(form,"city")}\nJá possui site: ${value(form,"hasSite")}\nObjetivo principal do site: ${value(form,"goal")}\nReferências/observações: ${value(form,"reference")||"Não informei"}\n\nGostaria de conversar sobre meu projeto.`;openWhatsApp("sites",message)})}
+function initWhatsApp() {
+  $$('[data-wa]').forEach(button => {
+    button.addEventListener('click', () => {
+      const route = button.dataset.wa === 'traffic' ? 'traffic' : 'site';
+      const phone = route === 'traffic' ? CORTES_CONFIG.whatsappTraffic : CORTES_CONFIG.whatsappSites;
+      const message = button.dataset.message || `Olá, Cortês. Vim pelo site e quero conversar sobre ${route === 'traffic' ? 'tráfego pago' : 'meu projeto digital'}.`;
+      window.open(whatsappURL(phone, message), '_blank', 'noopener,noreferrer');
+    });
+  });
+}
 
-function initTrafficQuiz(){const form=document.getElementById("trafficQuiz");if(!form)return;form.addEventListener("submit",event=>{event.preventDefault();if(!form.reportValidity())return;const message=`Olá, Cortês. Respondi o quiz de gestão de tráfego no site.\n\nEmpresa/negócio: ${value(form,"business")}\nSegmento: ${value(form,"segment")}\nCidade/região: ${value(form,"city")}\nSituação atual de anúncios: ${value(form,"currentAds")}\nObjetivo principal: ${value(form,"objective")}\nDestino desejado: ${value(form,"destination")}\nInvestimento mensal em mídia: ${value(form,"budget")}\n\nGostaria de conversar sobre a gestão de tráfego do meu negócio.`;openWhatsApp("traffic",message)})}
+function initMenu() {
+  const toggle = $('#menuToggle');
+  const nav = $('#mainNav');
+  if (!toggle || !nav) return;
 
-function initContactDock(){const trigger=document.getElementById("contactTrigger"),menu=document.getElementById("contactMenu");if(!trigger||!menu)return;const set=open=>{menu.hidden=!open;trigger.setAttribute("aria-expanded",String(open))};trigger.addEventListener("click",()=>set(trigger.getAttribute("aria-expanded")!=="true"));document.addEventListener("click",event=>{if(!event.target.closest("#contactDock"))set(false)});document.addEventListener("keydown",event=>{if(event.key==="Escape")set(false)})}
-function initMouseGlow(){const glow=document.getElementById("mouseGlow");if(!glow||!matchMedia("(hover: hover) and (pointer: fine)").matches)return;let tx=innerWidth/2,ty=innerHeight/2,cx=tx,cy=ty;addEventListener("mousemove",event=>{tx=event.clientX;ty=event.clientY},{passive:true});const animate=()=>{cx+=(tx-cx)*.08;cy+=(ty-cy)*.08;glow.style.left=`${cx}px`;glow.style.top=`${cy}px`;requestAnimationFrame(animate)};animate()}
-function initYear(){const year=document.getElementById("currentYear");if(year)year.textContent=new Date().getFullYear()}
+  const close = () => {
+    toggle.classList.remove('is-open');
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  };
 
-document.addEventListener("DOMContentLoaded",()=>{initMenu();initScrollButtons();initHeaderAndProgress();initScrollAnimations();initDigitalCut();initFAQ();initQuickQuiz();initSiteQuiz();initTrafficQuiz();initContactDock();initMouseGlow();initYear()});
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.classList.toggle('is-open', open);
+    nav.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('menu-open', open);
+  });
+
+  $$('a', nav).forEach(link => link.addEventListener('click', close));
+  window.addEventListener('resize', () => { if (window.innerWidth > 1040) close(); });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') close(); });
+}
+
+function initHeader() {
+  const header = $('#siteHeader');
+  const progress = $('#scrollProgress');
+
+  const update = () => {
+    if (header) header.classList.toggle('is-scrolled', window.scrollY > 18);
+    if (progress) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = `${max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0}%`;
+    }
+  };
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+}
+
+function initReveal() {
+  const items = $$('.reveal');
+  if (!items.length) return;
+
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    items.forEach(item => item.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+  items.forEach(item => observer.observe(item));
+}
+
+function initSmoothAnchors() {
+  $$('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', event => {
+      const id = link.getAttribute('href');
+      if (!id || id === '#') return;
+      const target = $(id);
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+}
+
+function initYear() {
+  const year = $('#currentYear');
+  if (year) year.textContent = new Date().getFullYear();
+}
+
+function init() {
+  initMenu();
+  initHeader();
+  initReveal();
+  initSmoothAnchors();
+  initWhatsApp();
+  initYear();
+}
+
+document.addEventListener('DOMContentLoaded', init);
