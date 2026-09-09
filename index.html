@@ -3,170 +3,176 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#070b12">
-  <meta name="description" content="CORTÊS — criação de sites, landing pages, gestão de tráfego e soluções digitais para negócios que querem fortalecer sua presença e gerar oportunidades.">
-  <meta property="og:title" content="CORTÊS | Sites, Tráfego e Soluções Digitais">
-  <meta property="og:description" content="Sites que apresentam. Campanhas que atraem. Estruturas digitais que transformam atenção em oportunidades.">
+  <meta name="theme-color" content="#050914">
+  <meta name="description" content="CORTÊS — sites, tráfego pago, qualificação e estruturas digitais para negócios que querem apresentar melhor, atrair e converter.">
+  <meta property="og:title" content="CORTÊS | Presença digital que gera negócio">
+  <meta property="og:description" content="Sites, tráfego, qualificação e conversão em uma estrutura digital pensada para negócios reais.">
   <meta property="og:type" content="website">
-  <title>CORTÊS | Sites, Tráfego e Soluções Digitais</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070b12'/%3E%3Cpath d='M42 18a18 18 0 1 0 0 28' fill='none' stroke='%23ffffff' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M22 50 44 14' stroke='%236f7cff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <title>CORTÊS | Presença digital que gera negócio</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050914'/%3E%3Cpath d='M43 17a18 18 0 1 0 0 30' fill='none' stroke='white' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M21 51 45 13' stroke='%236f70ff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
-  <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
 
   <header class="site-header" id="siteHeader">
-    <div class="container nav-shell">
-      <a class="brand" href="#inicio" aria-label="CORTÊS - Início">
-        <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M44 16a20 20 0 1 0 0 32"/><path class="brand__cut" d="M20 52 46 12"/></svg>
-        <span class="brand__text"><b>CORTÊS</b><small>Soluções Digitais</small></span>
+    <div class="shell header-inner">
+      <a class="brand" href="#inicio" aria-label="CORTÊS — início">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M43 16a20 20 0 1 0 0 32"/><path class="cut" d="M19 52 46 12"/></svg>
+        <span><strong>CORTÊS</strong><small>Soluções Digitais</small></span>
       </a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menu"><span></span><span></span></button>
+
       <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
         <a href="#inicio">Início</a>
-        <a href="#diagnostico">Diagnóstico</a>
+        <a href="#solucoes">Soluções</a>
+        <a href="#projetos">Projetos</a>
         <a href="#planos">Planos</a>
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#trafego">Tráfego</a>
-        <a href="#faq">FAQ</a>
+        <a href="#processo">Processo</a>
       </nav>
-      <button class="header-cta" type="button" data-scroll="#diagnostico">Descobrir meu próximo passo <span>↗</span></button>
+
+      <button class="header-cta" type="button" data-wa="site" data-message="Olá, Cortês. Vi o site da CORTÊS e quero conversar sobre meu projeto.">Falar no WhatsApp <span>↗</span></button>
     </div>
   </header>
 
   <main id="conteudo">
     <section class="hero" id="inicio">
-      <div class="hero__grid-bg" aria-hidden="true"></div>
-      <div class="hero__slash hero__slash--one" aria-hidden="true"></div>
-      <div class="hero__slash hero__slash--two" aria-hidden="true"></div>
-      <div class="container hero__layout">
-        <div class="hero__copy reveal">
-          <p class="code-label">CORTÊS / SOLUÇÕES DIGITAIS</p>
-          <h1><span class="hero-brand">CORTÊS</span><br>Presença digital feita para <em>gerar negócio.</em></h1>
-          <p class="hero__lead">Sites que apresentam sua empresa, campanhas que colocam sua oferta diante das pessoas certas e estruturas digitais que organizam o caminho até o WhatsApp.</p>
-          <div class="hero__actions">
-            <button class="btn btn--primary" type="button" data-scroll="#diagnostico">Descobrir o que meu negócio precisa <span>↗</span></button>
-            <a class="btn btn--ghost" href="#planos">Ver planos de site</a>
-          </div>
-          <div class="hero__meta"><span>SITES</span><i>/</i><span>TRÁFEGO</span><i>/</i><span>QUALIFICAÇÃO</span><i>/</i><span>CONVERSÃO</span></div>
-        </div>
-        <div class="hero-panel reveal" aria-label="Resumo do que a CORTÊS faz">
-          <div class="hero-panel__header"><span>C/</span><small>O QUE A CORTÊS ENTREGA</small></div>
-          <div class="hero-panel__item"><b>01</b><div><strong>Site profissional</strong><small>Uma apresentação comercial disponível 24h.</small></div></div>
-          <div class="hero-panel__item"><b>02</b><div><strong>Tráfego pago</strong><small>Campanhas para aumentar sua presença diante do público certo.</small></div></div>
-          <div class="hero-panel__item"><b>03</b><div><strong>Qualificação</strong><small>Quizzes que fazem o lead chegar ao WhatsApp com contexto.</small></div></div>
-          <div class="hero-panel__flow"><span>VISITANTE</span><b>→</b><span>ESTRUTURA</span><b>→</b><span>WHATSAPP</span><b>→</b><strong>OPORTUNIDADE</strong></div>
-        </div>
-      </div>
-      <div class="container hero__bottom"><span>CORTÊS / ESTRATÉGIA. PRESENÇA. CONVERSÃO.</span><span>↓ COMECE PELO DIAGNÓSTICO</span></div>
-    </section>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
 
-    <section class="quick-quiz section" id="diagnostico">
-      <div class="container quick-quiz__grid">
-        <div class="section-heading reveal">
-          <p class="code-label">01 / DIAGNÓSTICO RÁPIDO</p>
-          <h2>Em menos de um minuto, diga <span>quem você é e o que precisa.</span></h2>
-          <p>Você responde três perguntas. O site monta uma mensagem com o contexto do seu negócio e abre o WhatsApp do serviço certo.</p>
-        </div>
-        <form class="quiz-card reveal" id="quickQuiz">
-          <div class="quiz-field">
-            <label for="quickBusiness">Qual é o seu negócio?</label>
-            <input id="quickBusiness" name="business" type="text" placeholder="Ex.: clínica, restaurante, loja, profissional liberal" maxlength="80" required>
+      <div class="shell hero-content">
+        <div class="hero-copy reveal">
+          <div class="pill">SOLUÇÕES DIGITAIS PARA NEGÓCIOS REAIS</div>
+          <h1>Presença digital feita para <em>gerar negócio.</em></h1>
+          <p>Sites que apresentam sua empresa, campanhas que colocam sua oferta diante das pessoas certas e estruturas que organizam o caminho até o WhatsApp.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projetos">Ver projetos reais <span>↘</span></a>
+            <button class="btn btn-secondary" type="button" data-wa="site" data-message="Olá, Cortês. Quero entender qual estrutura digital faz mais sentido para o meu negócio.">Quero estruturar meu negócio</button>
           </div>
-          <fieldset class="quiz-field"><legend>O que você quer melhorar agora?</legend>
-            <div class="choice-grid">
-              <label class="choice"><input type="radio" name="need" value="site" required><span><b>Quero um site</b><small>Landing page ou presença profissional</small></span></label>
-              <label class="choice"><input type="radio" name="need" value="traffic"><span><b>Quero anunciar</b><small>Gestão de tráfego e campanhas</small></span></label>
-              <label class="choice"><input type="radio" name="need" value="unsure"><span><b>Não sei ainda</b><small>Quero entender meu melhor próximo passo</small></span></label>
+          <div class="hero-tags" aria-label="Áreas de atuação"><span>SITE</span><span>TRÁFEGO</span><span>QUALIFICAÇÃO</span><span>CONVERSÃO</span></div>
+        </div>
+
+        <div class="ecosystem reveal" aria-label="Ecossistema digital CORTÊS">
+          <article class="phone phone-instagram">
+            <div class="phone-notch"></div>
+            <div class="phone-top"><span>9:41</span><span>● ● ●</span></div>
+            <div class="profile-head">
+              <div class="profile-logo">C/</div>
+              <div><strong>cortezweb.ia</strong><small>Presença digital</small></div>
             </div>
-          </fieldset>
-          <div class="quiz-field"><label for="quickGoal">Qual seu principal objetivo?</label><select id="quickGoal" name="goal" required><option value="">Selecione</option><option>Conseguir mais contatos</option><option>Passar mais profissionalismo</option><option>Vender mais</option><option>Organizar minha presença digital</option><option>Divulgar meu negócio</option><option>Outro</option></select></div>
-          <button class="btn btn--primary btn--full" type="submit">Montar meu atendimento no WhatsApp <span>↗</span></button>
-          <p class="quiz-note">Sem cadastro. As respostas servem apenas para montar a mensagem que você enviará no WhatsApp.</p>
-        </form>
+            <div class="profile-bio"><b>CORTÊS | Soluções Digitais</b><span>Sites que apresentam negócios.</span><span>Tráfego para alcançar as pessoas certas.</span><span>Qualificação para conversas melhores.</span></div>
+            <div class="profile-actions"><i>Seguir</i><i>Mensagem</i></div>
+            <div class="story-row"><span>Sites</span><span>Projetos</span><span>Tráfego</span><span>Sobre</span></div>
+            <div class="feed-grid"><b>SEU NEGÓCIO<br>PRECISA SER<br>ENCONTRADO.</b><b>SITES QUE<br>APRESENTAM.</b><b>TRÁFEGO COM<br>DIREÇÃO.</b><b>DO CLIQUE<br>AO WHATSAPP.</b></div>
+          </article>
+
+          <article class="phone phone-whatsapp">
+            <div class="phone-notch"></div>
+            <div class="phone-top"><span>9:41</span><span>● ● ●</span></div>
+            <div class="wa-head"><div class="wa-avatar">C/</div><strong>CORTÊS</strong><small>Online</small></div>
+            <div class="wa-actions"><span>Ligar</span><span>Catálogo</span><span>Compartilhar</span></div>
+            <div class="wa-card"><small>Conta comercial</small><p>Sites, tráfego e qualificação para negócios que querem uma presença mais preparada.</p><p>Aracaju-SE e atendimento online.</p></div>
+            <div class="wa-card"><small>Catálogo</small><div class="catalog-mini"><span>Site</span><span>Tráfego</span><span>Quiz</span></div></div>
+            <div class="wa-message"><small>Mensagem de saudação</small><p>Olá! Seja bem-vindo à CORTÊS. Como posso ajudar?</p></div>
+          </article>
+
+          <article class="browser-card">
+            <div class="browser-bar"><i></i><i></i><i></i><span>cortesweb.ia</span></div>
+            <div class="browser-body">
+              <div class="browser-nav"><b>C/ CORTÊS</b><span>Início &nbsp; Soluções &nbsp; Projetos &nbsp; Planos</span></div>
+              <div class="browser-hero"><small>ESTRUTURA DIGITAL</small><h2>Seu negócio nas primeiras <em>buscas.</em></h2><p>Clareza, presença e um próximo passo visível.</p><span class="fake-button">Falar no WhatsApp →</span></div>
+              <div class="browser-stats"><div><strong>Site</strong><small>Apresentação</small></div><div><strong>Tráfego</strong><small>Alcance</small></div><div><strong>Qualificação</strong><small>Contexto</small></div><div><strong>Conversão</strong><small>Próximo passo</small></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="shell hero-foot"><span>MESMA ESSÊNCIA. EM TODOS OS CANAIS.</span><span>↓ EXPLORE A ESTRUTURA</span></div>
+    </section>
+
+    <section class="channel-strip" aria-label="Áreas CORTÊS"><div class="shell"><span>SITE</span><i></i><span>TRÁFEGO</span><i></i><span>QUALIFICAÇÃO</span><i></i><span>CONVERSÃO</span><i></i><span>PRESENÇA</span></div></section>
+
+    <section class="section solutions" id="solucoes">
+      <div class="shell">
+        <div class="section-head reveal"><p class="eyebrow">DO PLANEJAMENTO AO WHATSAPP</p><h2>Uma estrutura completa para o seu negócio <span>crescer com mais clareza.</span></h2><p>Cada peça tem uma função. Juntas, elas deixam sua presença digital mais organizada e comercial.</p></div>
+        <div class="solution-grid">
+          <article class="solution-card reveal"><b>01</b><div class="solution-icon">⌘</div><h3>Site profissional</h3><p>Uma apresentação clara do negócio, dos serviços e do próximo passo.</p><a href="#planos">Ver planos <span>↗</span></a></article>
+          <article class="solution-card reveal"><b>02</b><div class="solution-icon">↗</div><h3>Tráfego pago</h3><p>Sua oferta diante das pessoas certas, com campanha e objetivo definidos.</p><button type="button" data-wa="traffic" data-message="Olá, Cortês. Quero conversar sobre gestão de tráfego para o meu negócio.">Quero anunciar <span>↗</span></button></article>
+          <article class="solution-card reveal"><b>03</b><div class="solution-icon">◇</div><h3>Qualificação</h3><p>Briefings e quizzes que fazem o lead chegar à conversa com mais contexto.</p><a href="briefing-hub/">Ver Briefing Hub <span>↗</span></a></article>
+          <article class="solution-card reveal"><b>04</b><div class="solution-icon">✦</div><h3>Conversão</h3><p>Copy, CTAs e uma jornada que elimina dúvida e conduz para a ação.</p><button type="button" data-wa="site" data-message="Olá, Cortês. Quero melhorar a estrutura de conversão do meu negócio.">Conversar <span>↗</span></button></article>
+        </div>
       </div>
     </section>
 
-    <section class="plans section section--light" id="planos">
-      <div class="container">
-        <div class="section-heading section-heading--split reveal"><div><p class="code-label">02 / PLANOS DE SITE</p><h2>Escolha o nível de presença que <span>faz sentido para seu negócio.</span></h2></div><p>Os botões dos planos abrem um quiz específico para criação de sites. Assim, você já chega ao atendimento com as principais informações do projeto.</p></div>
+    <section class="section projects" id="projetos">
+      <div class="shell">
+        <div class="section-head section-head-split reveal"><div><p class="eyebrow">PROJETOS / GITHUB</p><h2>Não é só apresentação. <span>Tem projeto publicado.</span></h2></div><p>Uma seleção de trabalhos e projetos conceituais criados para diferentes nichos. Os links levam aos repositórios reais.</p></div>
+
+        <div class="projects-grid">
+          <a class="project-card project-clinic reveal" href="https://github.com/andrecortez374/landingpageclinica" target="_blank" rel="noopener noreferrer"><div class="project-preview"><span class="project-badge">ODONTOLOGIA</span><div class="mock-title">Núcleo<br>Odontológico<br>Santana</div><i>Ver estrutura →</i></div><div class="project-info"><div><small>Site profissional</small><h3>Núcleo Odontológico Santana</h3></div><span>GitHub ↗</span></div></a>
+
+          <a class="project-card project-food reveal" href="https://github.com/andrecortez374/RestaurantNbras" target="_blank" rel="noopener noreferrer"><div class="project-preview"><span class="project-badge">GASTRONOMIA</span><div class="mock-title">BRASA<br><em>27</em></div><i>Burger & Grill →</i></div><div class="project-info"><div><small>Projeto conceitual</small><h3>Brasa 27 — Burger & Grill</h3></div><span>GitHub ↗</span></div></a>
+
+          <a class="project-card project-law reveal" href="https://github.com/andrecortez374/Portofolio.Advocacia" target="_blank" rel="noopener noreferrer"><div class="project-preview"><span class="project-badge">ADVOCACIA</span><div class="mock-title">Albuquerque<br>& Prado</div><i>Clareza e autoridade →</i></div><div class="project-info"><div><small>Projeto demonstrativo</small><h3>Albuquerque & Prado</h3></div><span>GitHub ↗</span></div></a>
+
+          <a class="project-card project-fashion reveal" href="https://github.com/andrecortez374/tata.storys-site" target="_blank" rel="noopener noreferrer"><div class="project-preview"><span class="project-badge">MODA / MODELADORAS</span><div class="mock-title">tata<span>.</span>storys</div><i>Produto + tamanho + WhatsApp →</i></div><div class="project-info"><div><small>Site comercial</small><h3>Tata Storys</h3></div><span>GitHub ↗</span></div></a>
+
+          <a class="project-card project-honda reveal" href="https://github.com/andrecortez374/Eduado-costa-Honda" target="_blank" rel="noopener noreferrer"><div class="project-preview"><span class="project-badge">AUTOMOTIVO</span><div class="mock-title">Eduardo<br><em>Honda</em></div><i>Consultoria de vendas →</i></div><div class="project-info"><div><small>Site de vendas</small><h3>Eduardo Rocha — Honda</h3></div><span>GitHub ↗</span></div></a>
+
+          <a class="project-card project-esthetic reveal" href="https://github.com/andrecortez374/clinica-estetica" target="_blank" rel="noopener noreferrer"><div class="project-preview"><span class="project-badge">ESTÉTICA</span><div class="mock-title">ÉLARA</div><i>Estética avançada →</i></div><div class="project-info"><div><small>Projeto conceitual</small><h3>ÉLARA — Estética Avançada</h3></div><span>GitHub ↗</span></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="processo">
+      <div class="shell process-layout">
+        <div class="section-head reveal"><p class="eyebrow">COMO A ESTRUTURA NASCE</p><h2>Ideia. Estrutura. Construção. <span>Publicação.</span></h2><p>O visual muda de acordo com o negócio. O processo continua simples.</p></div>
+        <div class="process-track">
+          <article class="process-step reveal"><b>01</b><h3>Entender</h3><p>Negócio, público, oferta, referências e objetivo.</p></article>
+          <article class="process-step reveal"><b>02</b><h3>Estruturar</h3><p>Jornada, informação, CTA e direção visual.</p></article>
+          <article class="process-step reveal"><b>03</b><h3>Construir</h3><p>HTML, CSS e JavaScript com foco em mobile.</p></article>
+          <article class="process-step reveal"><b>04</b><h3>Publicar</h3><p>Revisão, GitHub Pages, domínio e entrega.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section plans" id="planos">
+      <div class="shell">
+        <div class="section-head reveal"><p class="eyebrow">PLANOS DE SITE</p><h2>Comece com a estrutura que <span>faz sentido agora.</span></h2><p>Do essencial ao projeto mais personalizado.</p></div>
         <div class="plans-grid">
-          <article class="plan-card reveal"><div class="plan-card__top"><span>PLANO / 01</span><h3>Essencial</h3><p>Para negócios que precisam colocar uma presença profissional no ar de forma acessível.</p></div><div class="price"><strong>R$ 250</strong><span>criação</span></div><div class="price price--monthly"><strong>R$ 100</strong><span>/mês</span></div><p class="plan-note">Estrutura, hospedagem, manutenção e suporte conforme condições contratadas.</p><ul><li>Landing page profissional</li><li>Design responsivo</li><li>Apresentação da empresa</li><li>Serviços e CTAs</li><li>WhatsApp</li><li>Estrutura comercial</li><li>Hospedagem e manutenção</li><li>Pequenos ajustes e suporte</li></ul><button class="btn btn--plan btn--full" type="button" data-open-site-quiz data-plan="Essencial">Quero o Essencial — responder quiz <span>↗</span></button></article>
-          <article class="plan-card plan-card--featured reveal"><div class="plan-badge">EXPERIÊNCIA COMPLETA</div><div class="plan-card__top"><span>PLANO / 02</span><h3>Profissional</h3><p>Para empresas que querem uma presença digital mais forte, personalizada e estratégica.</p></div><div class="price"><strong>R$ 900</strong><span>criação</span></div><p class="plan-note">Projeto com maior nível de personalização, arquitetura e refinamento visual.</p><ul><li>Estrutura personalizada</li><li>Design exclusivo</li><li>Mais seções</li><li>Arquitetura comercial</li><li>Copy estruturada</li><li>FAQ e formulário</li><li>Integrações e SEO básico</li><li>Microinterações</li><li>Design mobile avançado</li><li>Suporte prioritário</li></ul><button class="btn btn--primary btn--full" type="button" data-open-site-quiz data-plan="Profissional">Quero o Profissional — responder quiz <span>↗</span></button></article>
+          <article class="plan-card reveal"><span class="plan-label">ESSENCIAL</span><div class="plan-price"><strong>R$ 250</strong><small>criação</small></div><p>Para colocar uma presença profissional no ar com clareza e velocidade.</p><ul><li>Landing page profissional</li><li>Design responsivo</li><li>Serviços e CTAs</li><li>Integração com WhatsApp</li><li>Hospedagem e manutenção</li></ul><div class="monthly"><b>R$ 100</b><span>/ mês</span></div><button class="btn btn-secondary btn-full" type="button" data-wa="site" data-message="Olá, Cortês. Tenho interesse no Plano Essencial de site (R$ 250 + R$ 100/mês).">Quero o Essencial <span>↗</span></button></article>
+
+          <article class="plan-card plan-featured reveal"><span class="plan-label">PROFISSIONAL</span><span class="featured-tag">MAIS PERSONALIZAÇÃO</span><div class="plan-price"><strong>R$ 900</strong><small>criação</small></div><p>Para uma presença digital mais autoral, completa e estrategicamente organizada.</p><ul><li>Estrutura personalizada</li><li>Design exclusivo</li><li>Copy estruturada</li><li>Mais seções e integrações</li><li>SEO básico e microinterações</li><li>Design mobile avançado</li></ul><button class="btn btn-primary btn-full" type="button" data-wa="site" data-message="Olá, Cortês. Tenho interesse no Plano Profissional de site (R$ 900 de criação).">Quero o Profissional <span>↗</span></button></article>
+
+          <article class="plan-card plan-traffic reveal"><span class="plan-label">TRÁFEGO PAGO</span><div class="plan-price"><strong>Personalizado</strong><small>conforme objetivo</small></div><p>Estratégia, campanha, público e acompanhamento de acordo com o negócio.</p><ul><li>Definição de objetivo</li><li>Estrutura de campanha</li><li>Segmentação</li><li>Análise e ajustes</li><li>Destino para WhatsApp ou página</li></ul><button class="btn btn-secondary btn-full" type="button" data-wa="traffic" data-message="Olá, Cortês. Quero uma proposta personalizada de gestão de tráfego.">Quero anunciar <span>↗</span></button></article>
         </div>
       </div>
     </section>
 
-    <section class="info-section section" id="como-funciona">
-      <div class="container">
-        <div class="section-heading reveal"><p class="code-label">03 / POR QUE ISSO IMPORTA</p><h2>Seu cliente não conhece sua operação.<br><span>Primeiro ele conhece sua apresentação.</span></h2><p>Uma estrutura digital boa precisa explicar rapidamente quem você é, o que oferece, por que vale a pena continuar e qual é a próxima ação.</p></div>
-        <div class="info-grid"><article class="info-card reveal"><span>01 / APRESENTAR</span><h3>Parecer preparado</h3><p>Organização, clareza e design ajudam o visitante a perceber profissionalismo antes mesmo de falar com você.</p></article><article class="info-card reveal"><span>02 / DIRECIONAR</span><h3>Eliminar dúvida</h3><p>CTAs claros e uma jornada simples evitam que o cliente tenha que adivinhar o que fazer depois.</p></article><article class="info-card reveal"><span>03 / QUALIFICAR</span><h3>Chegar com contexto</h3><p>Quizzes podem transformar um “oi” genérico em uma conversa que já começa com negócio, objetivo e necessidade.</p></article></div>
-        <div class="process-line reveal"><div><b>01 / ENTENDER</b><span>Negócio, público e objetivo.</span></div><i>/</i><div><b>02 / ESTRUTURAR</b><span>Jornada, informação e oferta.</span></div><i>/</i><div><b>03 / CONSTRUIR</b><span>Design e desenvolvimento.</span></div><i>/</i><div><b>04 / PUBLICAR</b><span>Revisão e lançamento.</span></div></div>
+    <section class="briefing-callout">
+      <div class="shell briefing-box reveal">
+        <div><p class="eyebrow">ANTES DO CÓDIGO</p><h2>Quanto melhor o briefing, <span>menos genérico o projeto.</span></h2><p>O Briefing Hub organiza negócio, público, referências, serviços e direção visual antes da criação.</p></div>
+        <a class="btn btn-primary" href="briefing-hub/">Abrir Briefing Hub <span>↗</span></a>
       </div>
-    </section>
-
-    <section class="traffic section section--dark" id="trafego">
-      <div class="container traffic__grid">
-        <div class="traffic__copy reveal">
-          <p class="code-label">04 / GESTÃO DE TRÁFEGO</p>
-          <h2>Pare de depender apenas de quem encontra seu negócio <span>por acaso.</span></h2>
-          <p>Campanhas digitais podem colocar sua empresa diante de pessoas com potencial de interesse no que você vende. O trabalho envolve estrutura, público, criativo, campanha e análise — sem promessa de resultado garantido.</p>
-          <div class="traffic-points"><div><b>01</b><span>Entender sua empresa e oferta</span></div><div><b>02</b><span>Definir objetivo da campanha</span></div><div><b>03</b><span>Direcionar o público para o canal certo</span></div><div><b>04</b><span>Acompanhar e ajustar</span></div></div>
-        </div>
-        <form class="quiz-card quiz-card--dark reveal" id="trafficQuiz">
-          <div class="quiz-card__heading"><span>QUIZ / TRÁFEGO</span><h3>Chegue ao gestor com sua empresa já caracterizada.</h3></div>
-          <div class="quiz-two-cols"><div class="quiz-field"><label for="trafficBusiness">Empresa ou negócio</label><input id="trafficBusiness" name="business" type="text" placeholder="Nome ou tipo do negócio" maxlength="80" required></div><div class="quiz-field"><label for="trafficSegment">Segmento</label><input id="trafficSegment" name="segment" type="text" placeholder="Ex.: odontologia, roupas, autoescola" maxlength="80" required></div></div>
-          <div class="quiz-two-cols"><div class="quiz-field"><label for="trafficCity">Cidade/região atendida</label><input id="trafficCity" name="city" type="text" placeholder="Ex.: Aracaju e região" maxlength="80" required></div><div class="quiz-field"><label for="trafficCurrentAds">Já anuncia?</label><select id="trafficCurrentAds" name="currentAds" required><option value="">Selecione</option><option>Sim, Meta Ads</option><option>Sim, Google Ads</option><option>Sim, outras plataformas</option><option>Não anuncio atualmente</option></select></div></div>
-          <div class="quiz-field"><label for="trafficObjective">Objetivo principal</label><select id="trafficObjective" name="objective" required><option value="">Selecione</option><option>Receber mensagens no WhatsApp</option><option>Gerar contatos/leads</option><option>Vender produtos</option><option>Gerar agendamentos</option><option>Aumentar visitas ao site</option><option>Divulgar minha marca</option></select></div>
-          <div class="quiz-two-cols"><div class="quiz-field"><label for="trafficDestination">Para onde quer levar as pessoas?</label><select id="trafficDestination" name="destination" required><option value="">Selecione</option><option>WhatsApp</option><option>Instagram</option><option>Site</option><option>Ainda não sei</option></select></div><div class="quiz-field"><label for="trafficBudget">Investimento mensal em mídia</label><select id="trafficBudget" name="budget" required><option value="">Selecione</option><option>Ainda não defini</option><option>Até R$ 500</option><option>R$ 500 a R$ 1.500</option><option>R$ 1.500 a R$ 3.000</option><option>Acima de R$ 3.000</option></select></div></div>
-          <button class="btn btn--primary btn--full" type="submit">Enviar meu briefing para o gestor <span>↗</span></button>
-          <p class="quiz-note">O WhatsApp de tráfego é separado do WhatsApp de criação de sites.</p>
-        </form>
-      </div>
-    </section>
-
-    <section class="ecosystem section">
-      <div class="container ecosystem__grid"><div class="reveal"><p class="code-label">05 / SOLUÇÕES COMPLEMENTARES</p><h2>Um site pode ser o começo.<br><span>Não precisa ser o fim da estratégia.</span></h2><p>Quando fizer sentido, site, tráfego, criativos, quiz e organização de atendimento podem trabalhar juntos.</p></div><div class="ecosystem-flow reveal"><span>SITE</span><b>↓</b><span>TRÁFEGO</span><b>↓</b><span>CRIATIVOS</span><b>↓</b><span>QUALIFICAÇÃO</span><b>↓</b><span>ATENDIMENTO</span></div></div>
-    </section>
-
-    <section class="faq section section--dark" id="faq">
-      <div class="container faq__grid"><div class="faq__intro reveal"><p class="code-label">06 / FAQ</p><h2>As dúvidas principais, <span>sem enrolação.</span></h2><p>Se ainda houver algo específico sobre seu projeto, o quiz já envia o contexto para o WhatsApp correto.</p></div><div class="faq-list">
-        <article class="faq-item reveal"><button type="button" aria-expanded="false"><span>Quanto custa um site?</span><b>+</b></button><div><p>O site apresenta o Plano Essencial por R$ 250 de criação + R$ 100/mês e o Plano Profissional por R$ 900 de criação.</p></div></article>
-        <article class="faq-item reveal"><button type="button" aria-expanded="false"><span>O site funciona no celular?</span><b>+</b></button><div><p>Sim. Os projetos são desenvolvidos com atenção à experiência mobile e desktop.</p></div></article>
-        <article class="faq-item reveal"><button type="button" aria-expanded="false"><span>Posso usar meu domínio?</span><b>+</b></button><div><p>Sim, conforme a contratação e a estrutura escolhida.</p></div></article>
-        <article class="faq-item reveal"><button type="button" aria-expanded="false"><span>Os anúncios fazem parte do plano de site?</span><b>+</b></button><div><p>Não. Gestão de tráfego é um serviço separado da criação do site.</p></div></article>
-        <article class="faq-item reveal"><button type="button" aria-expanded="false"><span>Por que responder um quiz?</span><b>+</b></button><div><p>Para você não chegar ao atendimento apenas com “oi”. O WhatsApp já recebe um resumo do seu negócio, objetivo e necessidade.</p></div></article>
-      </div></div>
     </section>
 
     <section class="final-cta">
-      <div class="final-cta__mark" aria-hidden="true"><svg viewBox="0 0 160 160"><path d="M112 38a50 50 0 1 0 0 84"/><path class="brand__cut" d="M54 132 120 28"/></svg></div>
-      <div class="container final-cta__content reveal"><p class="code-label">CORTÊS / PRÓXIMO PASSO</p><h2>Seu próximo cliente pode estar pesquisando agora.</h2><p>Faça o diagnóstico rápido e chegue ao atendimento com seu negócio já contextualizado.</p><button class="btn btn--primary" type="button" data-scroll="#diagnostico">Começar diagnóstico <span>↗</span></button><span class="final-handle">@cortezweb.ia</span></div>
+      <div class="shell reveal"><p class="eyebrow">CORTÊS / SERVIÇOS DIGITAIS</p><h2>Seu próximo cliente pode pesquisar agora. <span>O que ele encontra quando chega até você?</span></h2><div class="final-actions"><button class="btn btn-primary" type="button" data-wa="site" data-message="Olá, Cortês. Quero criar uma presença digital mais profissional para meu negócio.">Criar meu site <span>↗</span></button><button class="btn btn-secondary" type="button" data-wa="traffic" data-message="Olá, Cortês. Quero anunciar meu negócio e conversar sobre gestão de tráfego.">Quero anunciar</button></div></div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><a class="brand" href="#inicio"><svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M44 16a20 20 0 1 0 0 32"/><path class="brand__cut" d="M20 52 46 12"/></svg><span class="brand__text"><b>CORTÊS</b><small>Soluções Digitais</small></span></a><p>Sites, tráfego e estruturas digitais com função comercial.</p></div><div><h3>Navegue</h3><a href="#diagnostico">Diagnóstico</a><a href="#planos">Planos</a><a href="#trafego">Tráfego</a><a href="#faq">FAQ</a></div><div><h3>Contatos</h3><button type="button" class="footer-link" data-open-site-quiz>Sites — (79) 98171-9602</button><button type="button" class="footer-link" data-scroll="#trafego">Tráfego — (79) 98813-3030</button></div><div><h3>Redes</h3><span class="footer-handle">@cortezweb.ia</span><small>CORTÊS / 2026</small></div></div><div class="container footer-bottom"><p>© <span id="currentYear"></span> CORTÊS. Todos os direitos reservados.</p><p>Estratégia. Presença. Conversão.</p></div></footer>
-
-  <div class="modal" id="siteQuizModal" hidden role="dialog" aria-modal="true" aria-labelledby="siteQuizTitle">
-    <div class="modal__backdrop" data-close-site-quiz></div>
-    <div class="modal__panel">
-      <button class="modal__close" type="button" data-close-site-quiz aria-label="Fechar">×</button>
-      <div class="quiz-card__heading"><span>QUIZ / CRIAÇÃO DE SITE</span><h2 id="siteQuizTitle">Conte como é seu negócio antes de falar comigo.</h2><p>O resultado vai para o WhatsApp de criação de sites: <strong>(79) 98171-9602</strong>.</p></div>
-      <form id="siteQuiz">
-        <input id="sitePlan" name="plan" type="hidden" value="Ainda não defini">
-        <div class="quiz-two-cols"><div class="quiz-field"><label for="siteBusiness">Empresa ou negócio</label><input id="siteBusiness" name="business" type="text" placeholder="Nome ou tipo do negócio" maxlength="80" required></div><div class="quiz-field"><label for="siteSegment">Segmento</label><input id="siteSegment" name="segment" type="text" placeholder="Ex.: clínica, restaurante, loja" maxlength="80" required></div></div>
-        <div class="quiz-two-cols"><div class="quiz-field"><label for="siteCity">Cidade/região</label><input id="siteCity" name="city" type="text" placeholder="Onde você atende?" maxlength="80" required></div><div class="quiz-field"><label for="siteHasSite">Já possui site?</label><select id="siteHasSite" name="hasSite" required><option value="">Selecione</option><option>Não</option><option>Sim, mas quero melhorar</option><option>Sim, e quero uma nova página</option></select></div></div>
-        <div class="quiz-field"><label for="siteGoal">O que o site precisa fazer principalmente?</label><select id="siteGoal" name="goal" required><option value="">Selecione</option><option>Apresentar minha empresa</option><option>Gerar mensagens no WhatsApp</option><option>Gerar agendamentos</option><option>Apresentar serviços e preços</option><option>Captar leads</option><option>Vender uma oferta específica</option><option>Ainda não sei</option></select></div>
-        <div class="quiz-field"><label for="siteReference">Tem alguma referência ou observação importante?</label><textarea id="siteReference" name="reference" rows="3" placeholder="Ex.: gosto de sites minimalistas; preciso mostrar 5 serviços; quero usar fotos da empresa..."></textarea></div>
-        <button class="btn btn--primary btn--full" type="submit">Enviar briefing para criação de site <span>↗</span></button>
-      </form>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div><a class="footer-brand" href="#inicio">CORTÊS</a><p>Sites, tráfego, qualificação e estruturas digitais.</p></div>
+      <div><small>SOCIAL</small><a href="https://www.instagram.com/cortezweb.ia/" target="_blank" rel="noopener noreferrer">@cortezweb.ia ↗</a></div>
+      <div><small>NAVEGAÇÃO</small><a href="#projetos">Projetos</a><a href="#planos">Planos</a><a href="briefing-hub/">Briefing Hub</a></div>
+      <div><small>CONTATO</small><button type="button" data-wa="site" data-message="Olá, Cortês. Vim pelo site e quero conversar.">WhatsApp — Sites ↗</button><button type="button" data-wa="traffic" data-message="Olá, Cortês. Vim pelo site e quero falar sobre tráfego pago.">WhatsApp — Tráfego ↗</button></div>
     </div>
-  </div>
-
-  <div class="contact-dock" id="contactDock"><div class="contact-menu" id="contactMenu" hidden><button type="button" data-open-site-quiz><span>01 /</span><b>Criar Site</b><small>(79) 98171-9602</small></button><button type="button" data-scroll="#trafego"><span>02 /</span><b>Gestão de Tráfego</b><small>(79) 98813-3030</small></button></div><button class="contact-trigger" id="contactTrigger" type="button" aria-expanded="false" aria-controls="contactMenu"><span class="contact-trigger__mark">C/</span><b>Falar com Cortês</b><i>+</i></button></div>
-  <div class="digital-cut" id="digitalCut" aria-hidden="true"></div>
+    <div class="shell footer-bottom"><span>© <b id="currentYear"></b> CORTÊS</span><span>PRESENÇA DIGITAL QUE GERA NEGÓCIO.</span></div>
+  </footer>
 </body>
 </html>
